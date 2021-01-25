@@ -1,0 +1,12 @@
+{
+  "cpu": "100m",
+  "memory": "4Gi",
+  "image": "docker.polly.elucidata.io/elucidata/connectors",
+  "tag": "geo-array",
+  "name": "",
+  "env": {
+    "gse_id": "",
+    "gpl_id": "",
+    "repo_id":""
+  }
+}
