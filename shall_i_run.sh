@@ -8,8 +8,9 @@ else
     echo $currenttime
     if [[ "$currenttime" > "17:00" ]] || [[ "$currenttime" < "12:00" ]]; then
       echo "Going to check if the job can be scheduled"
+      exit 0
     else
       echo "It not night to run"
-      exit 0
+      exit 1
     fi
 fi
