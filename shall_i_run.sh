@@ -2,6 +2,7 @@
 if [[ $(date +%u) -gt 5 ]]
 then 
   echo "Going to check if the job can be scheduled"
+  exit 0
 else 
   echo "Normal run"   
     currenttime=$(date +%H:%M)
@@ -11,6 +12,6 @@ else
       exit 0
     else
       echo "It not night to run"
-      exit 1
+      exit 0
     fi
 fi
