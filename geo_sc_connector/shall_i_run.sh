@@ -1,7 +1,7 @@
 #!/bin/bash
 
-printf "\n" | polly jobs status --workspace-id 6584 >> text.log
-NJOBS_RUNNING=$(grep -E  "(RUNNING|PENDING)" text.log | wc -l)
+printf "\n" | polly jobs status --workspace-id 6584 >> jobs.log
+NJOBS_RUNNING=$(grep -E  "(RUNNING|PENDING)" jobs.log | wc -l)
 
 if [[ $NJOBS_RUNNING -lt 3 ]];
 then
