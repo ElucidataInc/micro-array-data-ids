@@ -1,0 +1,14 @@
+{
+    "cpu":2,
+    "memory":"4Gi",
+    "image": "docker.polly.elucidata.io/elucidata/geo",
+    "tag": "v1",
+    "name": "curate and push a dataset to polly",
+    "env": {
+        "GSE_ID": "GSE91089",
+        "GPL_ID": "GPL11154",
+        "SRR_ID": "SRR5092300 SRR5092301 SRR5092302 SRR5092303 SRR5092304 SRR5092305",
+        "ORGANISM": "Homo sapiens",
+        "FOLDER_NAME" : "s3://public-dataset-engine/dee2_process/study_metadata"
+    }
+}
