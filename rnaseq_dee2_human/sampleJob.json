@@ -1,6 +1,5 @@
 {
-    "cpu":2,
-    "memory":"4Gi",
+    "machineType":"gp",
     "image": "docker.polly.elucidata.io/elucidata/geo",
     "tag": "v1",
     "name": "",
