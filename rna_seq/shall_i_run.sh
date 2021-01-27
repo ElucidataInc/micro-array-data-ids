@@ -1,5 +1,5 @@
 #!/bin/bash
-exit 0
+exit 1
 #if [[ $(date +%u) -gt 5 ]]
 #then 
 #  echo "Going to check if the job can be scheduled"
