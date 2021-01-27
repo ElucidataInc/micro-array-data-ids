@@ -1,4 +1,4 @@
-# micro-array-data-ids
+# How to run jobs automatically
 To add a data set automatically following things are to be done
 1. Create a folder with the data set type name
 2. Make a new workspace which will run only this data set
