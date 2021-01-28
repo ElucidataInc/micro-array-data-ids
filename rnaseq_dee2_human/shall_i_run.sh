@@ -5,5 +5,5 @@ if [ "$K" -gt "$MAX" ]
 then
         exit 1
 else
-        exit 1
+        exit 0
 fi
