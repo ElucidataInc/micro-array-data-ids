@@ -2,6 +2,7 @@
     "machineType":"gp",
     "image": "docker.polly.elucidata.io/elucidata/geo",
     "tag": "v1",
+    "timelimit": 1,
     "name": "",
     "env": {
         "GSE_ID": "",
