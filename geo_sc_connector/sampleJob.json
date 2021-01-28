@@ -1,6 +1,5 @@
 {
-  "cpu": "16000m",
-  "memory": "64Gi",
+  "machineType": "mi3xlarge",
   "image": "docker.polly.elucidata.io/elucidata/connectors",
   "tag": "geo-sc",
   "name": "",

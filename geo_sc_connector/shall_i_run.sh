@@ -1,6 +1,6 @@
 #!/bin/bash
 
-printf "\n" | polly jobs status --workspace-id 6584 >> jobs.log
+polly jobs status --workspace-id $WORKSPACE_ID -y > jobs.log
 NJOBS_RUNNING=$(grep -E  "(RUNNING|PENDING)" jobs.log | wc -l)
 
 if [[ $NJOBS_RUNNING -lt 2 ]];
