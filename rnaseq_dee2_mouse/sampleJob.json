@@ -1,0 +1,14 @@
+{
+    "machineType":"gp",
+    "image": "docker.polly.elucidata.io/elucidata/geo",
+    "tag": "mouse",
+    "timelimit": 1,
+    "name": "",
+    "env": {
+        "GSE_ID": "",
+        "GPL_ID": "",
+        "SRR_ID": "",
+        "ORGANISM": "Mus musculus",
+        "FOLDER_NAME" : "s3://public-dataset-engine/dee2_process/study_metadata"
+    }
+}
