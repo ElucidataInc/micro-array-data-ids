@@ -1,5 +1,6 @@
 {
-    "machineType":"gp",
+    "memory": "4Gi",
+    "cpu": 2,
     "image": "docker.polly.elucidata.io/elucidata/geo",
     "tag": "mouse",
     "timelimit": 1,
