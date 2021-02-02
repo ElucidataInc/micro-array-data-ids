@@ -26,12 +26,14 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-    - uses: actions/checkout@main
-    - name: Use Node.js 10
-      uses: actions/setup-node@v1
+    - uses: actions/checkout@v2
+    - name: Set up Python 3.x
+      uses: actions/setup-python@v2
       with:
-        node-version: 10
+        # Semantic version range syntax or exact version of a Python version
+        python-version: '3.x'
 
     - name: Installing dependencies and running bust jobs and saving the logs for information 
       run: |
         ls
+        pip --version
