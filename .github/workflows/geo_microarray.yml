@@ -40,23 +40,23 @@ jobs:
           (cd $CONNECTOR_DIR/continuity; python continuity.py)
       - name: Push new datasets list to repository
         run: |
-          mkdir -p $CONNECTOR_DIR/dataset_runs/
-          mkdir -p $CONNECTOR_DIR/dataset_not_public/
-          if [ ! -f $CONNECTOR_DIR/continuity/daily_datasets.txt ]; then
-            echo "File not found!"
-            exit 1;
-          else
-            mv $CONNECTOR_DIR/continuity/daily_datasets.csv $CONNECTOR_DIR/dataset_runs/$(date +'%m_%b_%Y').csv
-            git add $CONNECTOR_DIR/dataset_runs/$(date +'%m_%b_%Y').csv
-            git commit -m "Added datasets on $(date +'%m_%b_%Y')"
-          fi
-            
-          if [ ! -f $CONNECTOR_DIR/continuity/daily_datasets.txt ]; then
+          mkdir -p ${{ github.workspace }}/$CONNECTOR_DIR/dataset_runs/
+          mkdir -p ${{ github.workspace }}/$CONNECTOR_DIR/dataset_not_public/
+          if [ ! -f ${{ github.workspace }}/$CONNECTOR_DIR/continuity/daily_datasets.txt ]; then
             echo "File not found!"
             exit 0;
           else
-            mv $CONNECTOR_DIR/continuity/datasets_not_public.csv $CONNECTOR_DIR/dataset_not_public/$(date +'%m_%b_%Y')_not_public.csv
-            git add $CONNECTOR_DIR/dataset_not_public/$(date +'%m_%b_%Y')_not_public.csv
+            mv ${{ github.workspace }}/$CONNECTOR_DIR/continuity/daily_datasets.csv ${{ github.workspace }}/$CONNECTOR_DIR/dataset_runs/$(date +'%m_%b_%Y').csv
+            git add ${{ github.workspace }}/$CONNECTOR_DIR/dataset_runs/$(date +'%m_%b_%Y').csv
+            git commit -m "Added datasets on $(date +'%m_%b_%Y')"
+          fi
+            
+          if [ ! -f ${{ github.workspace }}/$CONNECTOR_DIR/continuity/daily_datasets.txt ]; then
+            echo "File not found!"
+            exit 0;
+          else
+            mv ${{ github.workspace }}/$CONNECTOR_DIR/continuity/datasets_not_public.csv ${{ github.workspace }}/$CONNECTOR_DIR/dataset_not_public/$(date +'%m_%b_%Y')_not_public.csv
+            git add ${{ github.workspace }}/$CONNECTOR_DIR/dataset_not_public/$(date +'%m_%b_%Y')_not_public.csv
             git commit -m "Added not public datasets on $(date +'%m_%b_%Y')"
           fi
           git push origin feature/continuity_array
