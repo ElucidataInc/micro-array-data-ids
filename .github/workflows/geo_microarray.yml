@@ -40,6 +40,8 @@ jobs:
           (cd $CONNECTOR_DIR/continuity; python continuity.py)
       - name: Push new datasets list to repository
         run: |
+          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
           mkdir -p ${{ github.workspace }}/$CONNECTOR_DIR/dataset_runs/
           mkdir -p ${{ github.workspace }}/$CONNECTOR_DIR/dataset_not_public/
           if [ ! -f ${{ github.workspace }}/$CONNECTOR_DIR/continuity/daily_datasets.csv ]; then
