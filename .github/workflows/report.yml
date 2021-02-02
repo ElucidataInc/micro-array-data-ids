@@ -42,4 +42,12 @@ jobs:
         pip --version
         pip install -r requirements.txt
         python public_dataset_stats.py "$JOBS_SECRET_KEY" "$JOBS_ACCESS_KEY"
-        ls
+        mv results/index.html ./index.html
+        git status
+        git add ./index.html
+        git status
+        git config --global user.email sabu.george@elucidata.io
+        git config --global user.name "Sabu George"
+        git commit -m "push the updated report"
+        git fetch origin gh-pages
+        git push origin HEAD:gh-pages
