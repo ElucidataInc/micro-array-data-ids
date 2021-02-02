@@ -1,0 +1,66 @@
+name: GEO-Microarray
+
+# Run this workflow every time a new commit pushed to your repository
+on: 
+  push
+  #schedule:
+   # - cron: "30 6 * * *"
+
+jobs:
+  geo-micro-array-schedule:
+    env: 
+      CONNECTOR_DIR: micro_array 
+    name: Schedule GEO Array datasets
+    runs-on: ubuntu-latest
+    strategy:
+        matrix:
+          python-version: [3.7.8]  
+
+    steps:
+      # Checks out a copy of your repository on the ubuntu-latest machine
+      - name: Checkout code
+        uses: actions/checkout@v2
+        with:
+            ref: feature/continuity_array
+
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v2
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Get full python version
+        id: full-python-version
+        run: |
+          echo ::set-output name=version::$(python -c "import sys; print('-'.join(str(v) for v in sys.version_info[:3]))")
+      - name: Install scehduler requirements
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r $CONNECTOR_DIR/continuity/requirements.txt
+      - name: Listen to repository for new datsets
+        working-directory: ./$CONNECTOR_DIR/continuity
+        run: |
+          python3 continuity.py
+      - name: Push new datasets list to repository
+        working-directory: .
+        run: |
+          mkdir -p $CONNECTOR_DIR/dataset_runs/
+          mkdir -p $CONNECTOR_DIR/dataset_not_public/
+          if [ ! -f $CONNECTOR_DIR/continuity/daily_datasets.txt ]; then
+            echo "File not found!"
+            exit 0;
+          else
+            mv $CONNECTOR_DIR/continuity/daily_datasets.csv $CONNECTOR_DIR/dataset_runs/$(date +'%m_%b_%Y').csv
+            git add $CONNECTOR_DIR/dataset_runs/$(date +'%m_%b_%Y').csv
+            git commit -m "Added datasets on $(date +'%m_%b_%Y')"
+          fi
+            
+          if [ ! -f $CONNECTOR_DIR/continuity/daily_datasets.txt ]; then
+            echo "File not found!"
+            exit 0;
+          else
+            mv $CONNECTOR_DIR/continuity/datasets_not_public.csv $CONNECTOR_DIR/dataset_not_public/$(date +'%m_%b_%Y')_not_public.csv
+            git add $CONNECTOR_DIR/dataset_not_public/$(date +'%m_%b_%Y')_not_public.csv
+            git commit -m "Added not public datasets on $(date +'%m_%b_%Y')"
+          fi
+          git push origin feature/continuity_array
+
+            
