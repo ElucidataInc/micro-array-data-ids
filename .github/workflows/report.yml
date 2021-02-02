@@ -3,6 +3,11 @@ name: Adding bust tasks on Compute jobs
 # Controls when the action will run. Workflow runs when manually triggered using the UI
 # or API.
 on:
+    # Triggers the workflow on push or pull request events but only for the master branch
+  push:
+    branches: [ gh-pages ]
+  pull_request:
+    branches: [ gh-pages ]
   workflow_dispatch:
     # Inputs the workflow accepts.
     inputs:
