@@ -54,7 +54,7 @@ def get_gse_object(gse_id):
         f.write(soft_data.text)
 
     gse_parse = GEOparse.parse_GSE(filepath = "response.txt")
-    os.remove("response.txt")
+    #os.remove("response.txt")
     return gse_parse
 
 
@@ -75,15 +75,14 @@ for gse_id in tqdm.tqdm(to_process):
         data_not_public.append(gse_id)
         continue
 
-    try:
-        gse_parse = get_gse_object(gse_id)
-        if len(gse_parse.metadata) == 0:
-            data_not_public.append(gse_id)
-            continue
-    except:
-        print(f"{gse_id} - data is not public")
+    gse_parse = get_gse_object(gse_id)
+    if len(gse_parse.metadata) == 0:
         data_not_public.append(gse_id)
         continue
+    # except:
+    #     print(f"{gse_id} - data is not public")
+    #     data_not_public.append(gse_id)
+    #     continue
 
     if 'SuperSeries of' in gse_parse.relations:
         for gse_sub in gse_parse.relations["SuperSeries of"]:
