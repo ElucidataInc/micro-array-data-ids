@@ -38,7 +38,7 @@ jobs:
       - name: Listen to repository for new datsets
         working-directory: ./$CONNECTOR_DIR/continuity
         run: |
-          python3 continuity.py
+          python continuity.py
       - name: Push new datasets list to repository
         working-directory: .
         run: |
