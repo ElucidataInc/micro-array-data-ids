@@ -1,19 +1,58 @@
 # This is a basic workflow to help you get started with Actions
 
-name: CI
+name: updating public dataset running
 
-# Controls when the action will run. 
+# Controls when the action will run. Workflow runs when manually triggered using the UI
+# or API.
 on:
-  # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
-      # Inputs the workflow accepts.
+    # Inputs the workflow accepts.
     inputs:
-        username:
+      username:
         # Friendly description to be shown in the UI instead of 'name'
         description: 'Polly user name'
         # Input has to be provided for the workflow to run
         required: true
-
+      password:
+        # Friendly description to be shown in the UI instead of 'name'
+        description: 'Polly password'
+        # Input has to be provided for the workflow to run
+        required: true
+      how_many_users:
+        # Friendly description to be shown in the UI instead of 'name'
+        description: 'Simulate how many users'
+        # Input has to be provided for the workflow to run
+        required: true
+      each_users_how_many_jobs:
+        # Friendly description to be shown in the UI instead of 'name'
+        description: 'Each users how many jobs'
+        # Input has to be provided for the workflow to run
+        required: true
+      workspace_id:
+        # Friendly description to be shown in the UI instead of 'name'
+        description: 'Polly workspace id to run the simulation'
+        # Input has to be provided for the workflow to run
+        required: true
+      polly_cpu:
+        # Friendly description to be shown in the UI instead of 'name'
+        description: 'No of cores'
+        # Input has to be provided for the workflow to run
+        required: true
+      polly_memory:
+        # Friendly description to be shown in the UI instead of 'name'
+        description: 'Amount of memory in Gi'
+        # Input has to be provided for the workflow to run
+        required: true
+      time_of_job:
+        # Friendly description to be shown in the UI instead of 'name'
+        description: 'Job run time in seconds'
+        # Input has to be provided for the workflow to run
+        required: true
+      polly_env:
+        # Friendly description to be shown in the UI instead of 'name'
+        description: 'polly environment options dev test prod'
+        # Input has to be provided for the workflow to run
+        required: true
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
