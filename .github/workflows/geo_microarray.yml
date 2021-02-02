@@ -36,11 +36,9 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r $CONNECTOR_DIR/continuity/requirements.txt
       - name: Listen to repository for new datsets
-        working-directory: ./$CONNECTOR_DIR/continuity
         run: |
-          python continuity.py
+          (cd $CONNECTOR_DIR/continuity; python continuity.py)
       - name: Push new datasets list to repository
-        working-directory: .
         run: |
           mkdir -p $CONNECTOR_DIR/dataset_runs/
           mkdir -p $CONNECTOR_DIR/dataset_not_public/
