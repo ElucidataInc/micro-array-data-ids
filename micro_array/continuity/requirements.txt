@@ -1,0 +1,3 @@
+GEOparse==2.0.2
+pandas==1.0.0
+tqdm==4.33.0
