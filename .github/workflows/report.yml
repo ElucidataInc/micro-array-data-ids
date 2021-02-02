@@ -34,7 +34,12 @@ jobs:
         python-version: '3.6'
 
     - name: Installing dependencies and running bust jobs and saving the logs for information 
+      env:
+        JOBS_ACCESS_KEY: ${{ secrets.JOBS_ACCESS_KEY }}
+        JOBS_SECRET_KEY: ${{ secrets.JOBS_SECRET_KEY }}
       run: |
         ls
         pip --version
         pip install -r requirements.txt
+        python public_dataset_stats.py "$JOBS_ACCESS_KEY" "$JOBS_SECRET_KEY"
+        ls
