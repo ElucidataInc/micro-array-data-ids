@@ -16,46 +16,6 @@ on:
         description: 'Polly user name'
         # Input has to be provided for the workflow to run
         required: true
-      password:
-        # Friendly description to be shown in the UI instead of 'name'
-        description: 'Polly password'
-        # Input has to be provided for the workflow to run
-        required: true
-      how_many_users:
-        # Friendly description to be shown in the UI instead of 'name'
-        description: 'Simulate how many users'
-        # Input has to be provided for the workflow to run
-        required: true
-      each_users_how_many_jobs:
-        # Friendly description to be shown in the UI instead of 'name'
-        description: 'Each users how many jobs'
-        # Input has to be provided for the workflow to run
-        required: true
-      workspace_id:
-        # Friendly description to be shown in the UI instead of 'name'
-        description: 'Polly workspace id to run the simulation'
-        # Input has to be provided for the workflow to run
-        required: true
-      polly_cpu:
-        # Friendly description to be shown in the UI instead of 'name'
-        description: 'No of cores'
-        # Input has to be provided for the workflow to run
-        required: true
-      polly_memory:
-        # Friendly description to be shown in the UI instead of 'name'
-        description: 'Amount of memory in Gi'
-        # Input has to be provided for the workflow to run
-        required: true
-      time_of_job:
-        # Friendly description to be shown in the UI instead of 'name'
-        description: 'Job run time in seconds'
-        # Input has to be provided for the workflow to run
-        required: true
-      polly_env:
-        # Friendly description to be shown in the UI instead of 'name'
-        description: 'polly environment options dev test prod'
-        # Input has to be provided for the workflow to run
-        required: true
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -66,7 +26,7 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-    - uses: actions/checkout@gh-pages
+    - uses: actions/checkout@main
     - name: Use Node.js 10
       uses: actions/setup-node@v1
       with:
