@@ -277,7 +277,7 @@ fig.add_trace(go.Scatter(
     ),
     connectgaps=True  # override default to connect the gaps
 ),
-    row=2, col=1
+    row=1, col=1
 
 )
 
@@ -293,7 +293,7 @@ fig.add_trace(go.Scatter(
     ),
     connectgaps=True  # override default to connect the gaps
 ),
-    row=2, col=1
+    row=1, col=1
 
 )
 fig.update_layout(title_text='<b>Public dataset addition rate</b>',
