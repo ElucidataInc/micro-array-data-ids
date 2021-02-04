@@ -50,7 +50,7 @@ jobs:
             exit 0;
           else
             mv ${{ github.workspace }}/$CONNECTOR_DIR/continuity/daily_datasets.csv ${{ github.workspace }}/$CONNECTOR_DIR/dataset_runs/$(date +'%m_%b_%Y').csv
-            ls -l
+            ls -l ${{ github.workspace }}/$CONNECTOR_DIR/dataset_runs/
             git add ${{ github.workspace }}/$CONNECTOR_DIR/dataset_runs/$(date +'%m_%b_%Y').csv
             git commit -m "Added datasets on $(date +'%m_%b_%Y')"
           fi
