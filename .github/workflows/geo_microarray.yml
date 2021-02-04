@@ -40,6 +40,7 @@ jobs:
           (cd $CONNECTOR_DIR/continuity; python continuity.py)
       - name: Push new datasets list to repository
         run: |
+          pwd
           git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
           mkdir -p ${{ github.workspace }}/$CONNECTOR_DIR/dataset_runs/
@@ -49,6 +50,7 @@ jobs:
             exit 0;
           else
             mv ${{ github.workspace }}/$CONNECTOR_DIR/continuity/daily_datasets.csv ${{ github.workspace }}/$CONNECTOR_DIR/dataset_runs/$(date +'%m_%b_%Y').csv
+            ls -l
             git add ${{ github.workspace }}/$CONNECTOR_DIR/dataset_runs/$(date +'%m_%b_%Y').csv
             git commit -m "Added datasets on $(date +'%m_%b_%Y')"
           fi
@@ -58,6 +60,7 @@ jobs:
             exit 0;
           else
             mv ${{ github.workspace }}/$CONNECTOR_DIR/continuity/datasets_not_public.csv ${{ github.workspace }}/$CONNECTOR_DIR/dataset_not_public/$(date +'%m_%b_%Y')_not_public.csv
+            ls -l
             git add ${{ github.workspace }}/$CONNECTOR_DIR/dataset_not_public/$(date +'%m_%b_%Y')_not_public.csv
             git commit -m "Added not public datasets on $(date +'%m_%b_%Y')"
           fi
