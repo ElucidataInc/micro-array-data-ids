@@ -58,7 +58,8 @@ jobs:
           if [ ! -f ${{ github.workspace }}/$CONNECTOR_DIR/dataset_runs/$(date +'%m_%b_%Y').csv ]; then
             echo "Dataset addition file not found!"
             exit 1;
-          else
+          fi
+          if [ -f ${{ github.workspace }}/$CONNECTOR_DIR/continuity/datasets_not_public.csv ];then
             mv ${{ github.workspace }}/$CONNECTOR_DIR/continuity/datasets_not_public.csv ${{ github.workspace }}/$CONNECTOR_DIR/dataset_not_public/$(date +'%m_%b_%Y')_not_public.csv
             ls -l
             git add ${{ github.workspace }}/$CONNECTOR_DIR/dataset_not_public/$(date +'%m_%b_%Y')_not_public.csv
