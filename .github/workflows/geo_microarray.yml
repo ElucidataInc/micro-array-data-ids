@@ -2,9 +2,8 @@ name: GEO-Microarray
 
 # Run this workflow every time a new commit pushed to your repository
 on: 
-  push
-  #schedule:
-   # - cron: "30 6 * * *"
+  schedule:
+    - cron: "30 6 * * *"
 
 jobs:
   geo-micro-array-schedule:
@@ -20,8 +19,9 @@ jobs:
       # Checks out a copy of your repository on the ubuntu-latest machine
       - name: Checkout code
         uses: actions/checkout@v2
-        with:
-            ref: feature/continuity_array
+        # comment out for trying on different branch
+        # with:
+         #   ref: feature/continuity_array
 
       - name: Set up Python ${{ matrix.python-version }}
         uses: actions/setup-python@v2
@@ -65,6 +65,6 @@ jobs:
             git add ${{ github.workspace }}/$CONNECTOR_DIR/dataset_not_public/$(date +'%m_%b_%Y')_not_public.csv
             git commit -m "Added not public datasets on $(date +'%m_%b_%Y')"
           fi
-          git push origin feature/continuity_array
+          git push origin main
 
             
