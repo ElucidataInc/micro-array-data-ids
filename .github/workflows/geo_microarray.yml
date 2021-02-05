@@ -55,7 +55,7 @@ jobs:
             git commit -m "Added datasets on $(date +'%m_%b_%Y')"
           fi
             
-          if [ ! -f ${{ github.workspace }}/$CONNECTOR_DIR/continuity/$(date +'%m_%b_%Y').csv ]; then
+          if [ ! -f ${{ github.workspace }}/$CONNECTOR_DIR/continuity/dataset_runs/$(date +'%m_%b_%Y').csv ]; then
             echo "Dataset addition file not found!"
             exit 1;
           else
