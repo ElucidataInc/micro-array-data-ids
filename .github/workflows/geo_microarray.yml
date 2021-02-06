@@ -3,7 +3,7 @@ name: GEO-Microarray
 # Run this workflow every time a new commit pushed to your repository
 on: 
   schedule:
-    - cron: "30 6 * * *"
+    - cron: '30 6 * * *'
 
 jobs:
   geo-micro-array-schedule:
