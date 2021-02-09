@@ -1,0 +1,70 @@
+name: GEO-Single cell processed
+
+# Run this workflow every time a new commit pushed to your repository
+on: 
+  schedule:
+    - cron: '30 6 * * *'
+
+jobs:
+  geo-sc-processed-schedule:
+    env: 
+      CONNECTOR_DIR: geo_sc_connector
+    name: Schedule GEO single cell datasets
+    runs-on: ubuntu-latest
+    strategy:
+        matrix:
+          python-version: [3.7.8]  
+
+    steps:
+      # Checks out a copy of your repository on the ubuntu-latest machine
+      - name: Checkout code
+        uses: actions/checkout@v2
+        # comment out for trying on different branch
+        # with:
+         #   ref: feature/continuity_array
+
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v2
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Get full python version
+        id: full-python-version
+        run: |
+          echo ::set-output name=version::$(python -c "import sys; print('-'.join(str(v) for v in sys.version_info[:3]))")
+      - name: Install scehduler requirements
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r $CONNECTOR_DIR/continuity/requirements.txt
+      - name: Listen to repository for new datsets
+        run: |
+          (cd $CONNECTOR_DIR/continuity; python continuity.py)
+      - name: Push new datasets list to repository
+        run: |
+          pwd
+          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          mkdir -p ${{ github.workspace }}/$CONNECTOR_DIR/dataset_runs/
+          mkdir -p ${{ github.workspace }}/$CONNECTOR_DIR/dataset_not_public/
+          if [ ! -f ${{ github.workspace }}/$CONNECTOR_DIR/continuity/daily_datasets.csv ]; then
+            echo "File not found!"
+            exit 0;
+          else
+            mv ${{ github.workspace }}/$CONNECTOR_DIR/continuity/daily_datasets.csv ${{ github.workspace }}/$CONNECTOR_DIR/dataset_runs/$(date +'%m_%b_%Y').csv
+            ls -l ${{ github.workspace }}/$CONNECTOR_DIR/dataset_runs/
+            git add ${{ github.workspace }}/$CONNECTOR_DIR/dataset_runs/$(date +'%m_%b_%Y').csv
+            git commit -m "Added datasets on $(date +'%m_%b_%Y')"
+          fi
+            
+          if [ ! -f ${{ github.workspace }}/$CONNECTOR_DIR/dataset_runs/$(date +'%m_%b_%Y').csv ]; then
+            echo "Dataset addition file not found!"
+            exit 1;
+          fi
+          if [ -f ${{ github.workspace }}/$CONNECTOR_DIR/continuity/datasets_not_public.csv ];then
+            mv ${{ github.workspace }}/$CONNECTOR_DIR/continuity/datasets_not_public.csv ${{ github.workspace }}/$CONNECTOR_DIR/dataset_not_public/$(date +'%m_%b_%Y')_not_public.csv
+            ls -l
+            git add ${{ github.workspace }}/$CONNECTOR_DIR/dataset_not_public/$(date +'%m_%b_%Y')_not_public.csv
+            git commit -m "Added not public datasets on $(date +'%m_%b_%Y')"
+          fi
+          git push origin main
+
+            
