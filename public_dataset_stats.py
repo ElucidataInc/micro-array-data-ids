@@ -91,6 +91,8 @@ dataset_id = {
     6575: "micro_array",
     6583: "rnaseq_dee2_human",
     6595: "rnaseq_dee2_mouse",
+    6628: "rnaseq_dee2_human_revamped"
+    6628: "rnaseq_dee2_rat"
 }
 
 dataset_id_success = {
@@ -99,6 +101,8 @@ dataset_id_success = {
     "rnaseq_dee2_human": [],
     "rnaseq_dee2_mouse": [],
     "accumulative_per_day": [],
+    "rnaseq_dee2_human_revamped": [],
+    "rnaseq_dee2_rat": []
 }
 dataset_id_error = {
     "geo_sc_connector": [],
@@ -106,6 +110,8 @@ dataset_id_error = {
     "rnaseq_dee2_human": [],
     "rnaseq_dee2_mouse": [],
     "accumulative_per_day": [],
+    "rnaseq_dee2_human_revamped":[],
+    "rnaseq_dee2_rat":[]
 
 }
 
@@ -116,6 +122,8 @@ dataset_id_color = {
     "rnaseq_dee2_mouse": 'Violet',
     "accumulative_per_day": 'Pink',
     "total_accumulative": 'Orange',
+    "rnaseq_dee2_human_revamped": "Yellow",
+    "rnaseq_dee2_rat": "Goldenrod"
 }
 
 one_day = 86400000
