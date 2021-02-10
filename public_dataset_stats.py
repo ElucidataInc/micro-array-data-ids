@@ -91,7 +91,7 @@ dataset_id = {
     6575: "micro_array",
     6583: "rnaseq_dee2_human",
     6595: "rnaseq_dee2_mouse",
-    6628: "rnaseq_dee2_human_revamped"
+    6623: "rnaseq_dee2_human_revamped",
     6628: "rnaseq_dee2_rat"
 }
 
