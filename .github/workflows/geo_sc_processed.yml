@@ -49,21 +49,21 @@ jobs:
             echo "File not found!"
             exit 0;
           else
-            mv ${{ github.workspace }}/$CONNECTOR_DIR/continuity/daily_datasets.csv ${{ github.workspace }}/$CONNECTOR_DIR/dataset_runs/$(date +'%m_%b_%Y').csv
+            mv ${{ github.workspace }}/$CONNECTOR_DIR/continuity/daily_datasets.csv ${{ github.workspace }}/$CONNECTOR_DIR/dataset_runs/$(date +'%d_%b_%Y').csv
             ls -l ${{ github.workspace }}/$CONNECTOR_DIR/dataset_runs/
-            git add ${{ github.workspace }}/$CONNECTOR_DIR/dataset_runs/$(date +'%m_%b_%Y').csv
-            git commit -m "Added datasets on $(date +'%m_%b_%Y')"
+            git add ${{ github.workspace }}/$CONNECTOR_DIR/dataset_runs/$(date +'%d_%b_%Y').csv
+            git commit -m "Added datasets on $(date +'%d_%b_%Y')"
           fi
             
-          if [ ! -f ${{ github.workspace }}/$CONNECTOR_DIR/dataset_runs/$(date +'%m_%b_%Y').csv ]; then
+          if [ ! -f ${{ github.workspace }}/$CONNECTOR_DIR/dataset_runs/$(date +'%d_%b_%Y').csv ]; then
             echo "Dataset addition file not found!"
             exit 1;
           fi
           if [ -f ${{ github.workspace }}/$CONNECTOR_DIR/continuity/datasets_not_public.csv ];then
-            mv ${{ github.workspace }}/$CONNECTOR_DIR/continuity/datasets_not_public.csv ${{ github.workspace }}/$CONNECTOR_DIR/dataset_not_public/$(date +'%m_%b_%Y')_not_public.csv
+            mv ${{ github.workspace }}/$CONNECTOR_DIR/continuity/datasets_not_public.csv ${{ github.workspace }}/$CONNECTOR_DIR/dataset_not_public/$(date +'%d_%b_%Y')_not_public.csv
             ls -l
-            git add ${{ github.workspace }}/$CONNECTOR_DIR/dataset_not_public/$(date +'%m_%b_%Y')_not_public.csv
-            git commit -m "Added not public datasets on $(date +'%m_%b_%Y')"
+            git add ${{ github.workspace }}/$CONNECTOR_DIR/dataset_not_public/$(date +'%d_%b_%Y')_not_public.csv
+            git commit -m "Added not public datasets on $(date +'%d_%b_%Y')"
           fi
           git push origin main
 
