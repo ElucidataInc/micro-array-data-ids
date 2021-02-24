@@ -92,7 +92,12 @@ dataset_id = {
     6583: "rnaseq_dee2_human",
     6595: "rnaseq_dee2_mouse",
     6623: "rnaseq_dee2_human_revamped",
-    6628: "rnaseq_dee2_rat"
+    6628: "rnaseq_dee2_rat",
+    6682: "rna_dee2_athaliana",
+    6647: "rna_dee2_celegans",
+    6683: "rna_dee2_drerio",
+    6658: "rna_dee2_ecoli",
+    6714: "rna_dee2_scerevisiae"
 }
 
 dataset_id_success = {
@@ -102,7 +107,12 @@ dataset_id_success = {
     "rnaseq_dee2_mouse": [],
     "accumulative_per_day": [],
     "rnaseq_dee2_human_revamped": [],
-    "rnaseq_dee2_rat": []
+    "rnaseq_dee2_rat": [],
+    "rna_dee2_athaliana": [],
+    "rna_dee2_celegans": [],
+    "rna_dee2_drerio": [],
+    "rna_dee2_ecoli": [],
+    "rna_dee2_scerevisiae": []
 }
 dataset_id_error = {
     "geo_sc_connector": [],
@@ -111,7 +121,12 @@ dataset_id_error = {
     "rnaseq_dee2_mouse": [],
     "accumulative_per_day": [],
     "rnaseq_dee2_human_revamped":[],
-    "rnaseq_dee2_rat":[]
+    "rnaseq_dee2_rat":[],
+    "rna_dee2_athaliana": [],
+    "rna_dee2_celegans": [],
+    "rna_dee2_drerio": [],
+    "rna_dee2_ecoli": [],
+    "rna_dee2_scerevisiae": []
 
 }
 
@@ -123,7 +138,12 @@ dataset_id_color = {
     "accumulative_per_day": 'Pink',
     "total_accumulative": 'Orange',
     "rnaseq_dee2_human_revamped": "Yellow",
-    "rnaseq_dee2_rat": "Goldenrod"
+    "rnaseq_dee2_rat": "Goldenrod",
+    "rna_dee2_athaliana": "Magenta",
+    "rna_dee2_celegans": "#636EFA",
+    "rna_dee2_drerio": "#00CC96",
+    "rna_dee2_ecoli": "#AB63FA",
+    "rna_dee2_scerevisiae": "#FF6692"
 }
 
 one_day = 86400000
