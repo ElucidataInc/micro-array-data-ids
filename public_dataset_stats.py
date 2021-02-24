@@ -175,7 +175,7 @@ for number in range(1, now.month + 1):
             error_rows = df[(df['project_id'] == each_id) & (df['state'].str.contains('ERROR')) & (
                 df['created_ts'] >= latest_time) & (df['created_ts'] <= latest_time+one_day)].shape[0]
 
-            if error_rows > 0 or error_rows > 0:
+            if error_rows > 0 or success_rows > 0:
                 monthly_data[str(number)][str(passed_day)][dataset_id[each_id]] = {
                     "success": success_rows, "error": error_rows
                 }
