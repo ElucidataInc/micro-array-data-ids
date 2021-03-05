@@ -1,5 +1,5 @@
 {
-  "machineType": "mi3xlarge",
+  "machineType": "mi4xlarge",
   "image": "docker.polly.elucidata.io/elucidata/connectors",
   "tag": "geo-sc",
   "name": "",
