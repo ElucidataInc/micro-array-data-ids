@@ -88,7 +88,9 @@ date_to_epoc = {
 
 dataset_id = {
     6584: "geo_sc_connector",
+    6775: "geo_sc_connector_1",
     6575: "micro_array",
+    6774: "micro_array_1",
     6583: "rnaseq_dee2_human",
     6595: "rnaseq_dee2_mouse",
     6623: "rnaseq_dee2_human_revamped",
@@ -97,12 +99,15 @@ dataset_id = {
     6658: "rna_dee2_ecoli",
     6682: "rna_dee2_athaliana",
     6683: "rna_dee2_drerio",
-    6714: "rna_dee2_scerevisiae"
+    6714: "rna_dee2_scerevisiae",
+    6785: "geo_curation"
 }
 
 dataset_id_success = {
     "geo_sc_connector": [],
+    "geo_sc_connector_1": [],
     "micro_array": [],
+    "micro_array_1": [],
     "rnaseq_dee2_human": [],
     "rnaseq_dee2_mouse": [],
     "accumulative_per_day": [],
@@ -112,11 +117,14 @@ dataset_id_success = {
     "rna_dee2_ecoli": [],
     "rna_dee2_athaliana": [],
     "rna_dee2_drerio": [],
-    "rna_dee2_scerevisiae": []
+    "rna_dee2_scerevisiae": [],
+    "geo_curation": []
 }
 dataset_id_error = {
     "geo_sc_connector": [],
+    "geo_sc_connector_1": [],
     "micro_array": [],
+    "micro_array_1": [],
     "rnaseq_dee2_human": [],
     "rnaseq_dee2_mouse": [],
     "accumulative_per_day": [],
@@ -126,13 +134,16 @@ dataset_id_error = {
     "rna_dee2_ecoli": [],
     "rna_dee2_athaliana": [],
     "rna_dee2_drerio": [],
-    "rna_dee2_scerevisiae": []
+    "rna_dee2_scerevisiae": [],
+    "geo_curation": []
 
 }
 
 dataset_id_color = {
     "geo_sc_connector": 'Blue',
+    "geo_sc_connector_1": 'Blue',
     "micro_array": 'Green',
+    "micro_array_1": 'Green',
     "rnaseq_dee2_human": 'Red',
     "rnaseq_dee2_mouse": 'Violet',
     "accumulative_per_day": 'Pink',
@@ -143,7 +154,8 @@ dataset_id_color = {
     "rna_dee2_ecoli": "#AB63FA",
     "rna_dee2_athaliana": "Magenta",
     "rna_dee2_drerio": "#00CC96",
-    "rna_dee2_scerevisiae": "#FF6692"
+    "rna_dee2_scerevisiae": "#FF6692",
+    "geo_curation": "#17becf"
 }
 
 one_day = 86400000
