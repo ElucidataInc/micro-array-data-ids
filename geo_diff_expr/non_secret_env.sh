@@ -1,0 +1,5 @@
+#!/bin/bash
+export WORKSPACE_ID=6796
+export DATASET_COLS="FILE"
+export CPU_REQUIRED=1000
+export RAM_REQUIRED=2148000000
