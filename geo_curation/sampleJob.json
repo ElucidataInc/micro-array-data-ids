@@ -1,7 +1,7 @@
 {
     "memory": "4Gi",
     "cpu": 2,
-    "image": "docker.polly.elucidata.io/elucidata/curation",
+    "image": "docker.polly.elucidata.io/elucidata/metadata_curation",
     "tag": "grade2_geo",
     "timelimit": 1,
     "name": "",
