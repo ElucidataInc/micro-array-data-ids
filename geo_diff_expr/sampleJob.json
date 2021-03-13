@@ -1,0 +1,10 @@
+{
+  "cpu": 1,
+  "memory": "2Gi",
+  "image": "docker.polly.elucidata.io/elucidata/geo_differential_expression",
+  "tag": "latest",
+  "name": "",
+  "env": {
+    "FILE": ""
+  }
+}
