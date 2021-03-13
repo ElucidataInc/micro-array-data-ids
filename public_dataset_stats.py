@@ -100,7 +100,8 @@ dataset_id = {
     6682: "rna_dee2_athaliana",
     6683: "rna_dee2_drerio",
     6714: "rna_dee2_scerevisiae",
-    6785: "geo_curation"
+    6785: "geo_curation",
+    6796: "geo_diff_expr"
 }
 
 dataset_id_success = {
@@ -118,7 +119,8 @@ dataset_id_success = {
     "rna_dee2_athaliana": [],
     "rna_dee2_drerio": [],
     "rna_dee2_scerevisiae": [],
-    "geo_curation": []
+    "geo_curation": [],
+    "geo_diff_expr": []
 }
 dataset_id_error = {
     "geo_sc_connector": [],
@@ -135,7 +137,8 @@ dataset_id_error = {
     "rna_dee2_athaliana": [],
     "rna_dee2_drerio": [],
     "rna_dee2_scerevisiae": [],
-    "geo_curation": []
+    "geo_curation": [],
+    "geo_diff_expr": []
 
 }
 
@@ -155,7 +158,8 @@ dataset_id_color = {
     "rna_dee2_athaliana": "Magenta",
     "rna_dee2_drerio": "#00CC96",
     "rna_dee2_scerevisiae": "#FF6692",
-    "geo_curation": "#17becf"
+    "geo_curation": "#17becf",
+    "geo_diff_expr": "#B6E880"
 }
 
 one_day = 86400000
