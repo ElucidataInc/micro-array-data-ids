@@ -10,7 +10,7 @@ from xml.etree import ElementTree
 from ftplib import FTP
 import re
 
-REPO_ID = "1610017724989"
+REPO_ID = "9"
 LAG_DAYS = 2
 pdat = (datetime.today() - timedelta(days=LAG_DAYS)).strftime("%Y/%m/%d")
 
