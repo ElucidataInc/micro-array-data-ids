@@ -1,7 +1,7 @@
 {
   "machineType": "mi4xlarge",
   "image": "docker.polly.elucidata.io/elucidata/connectors",
-  "tag": "geo-sc",
+  "tag": "geo-sc_v2",
   "name": "",
   "env": {
     "gse_id": "",

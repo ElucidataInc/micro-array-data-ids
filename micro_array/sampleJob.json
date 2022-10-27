@@ -2,7 +2,7 @@
   "cpu": "100m",
   "memory": "4Gi",
   "image": "docker.polly.elucidata.io/elucidata/connectors",
-  "tag": "geo-array",
+  "tag": "geo-array_v2",
   "name": "",
   "env": {
     "gse_id": "",
